@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Jogos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">KJP</div>
+    </header>
+    <main>
+        <section class="categories">
+            <h1>Categorias</h1>
+            <p>Arquivo você encontra a maior variedade de itens para seus jogos preferidos.</p>
+            <div class="filter">
+                <select id="gameFilter">
+                    <option value="all">Todos os jogos</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Pesquisar...">
+            </div>
+            <div class="category-grid" id="categoryGrid">
+                <!-- Os itens serão carregados pelo script -->
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
