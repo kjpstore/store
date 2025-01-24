@@ -1,0 +1,68 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0f12;
+    color: #ffffff;
+}
+
+header {
+    background-color: #20232a;
+    padding: 15px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #66d9ff;
+}
+
+/* Seção de categorias */
+.categories {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+.filter {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter select, .filter input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.category-grid .category-item {
+    background: #333;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.category-grid .category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-grid img {
+    width: 100%;
+    border-radius: 10px;
+  }
