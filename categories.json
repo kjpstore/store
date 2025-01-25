@@ -1,10 +1,12 @@
 [
     {
         "jogo": "Blox Fruits",
+        "genero": "Simulação",
         "imagem": "https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/bloxfruits.png"
     },
     {
         "jogo": "Fisch",
+        "genero": "Simulação",
         "imagem": "https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/fisch.png"
     }
 ]
