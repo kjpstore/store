@@ -8,13 +8,23 @@
 </head>
 <body>
     <header>
-        <div class="logo">KJP</div>
-        <button id="searchButton" class="search-icon">🔍</button>
+        <div class="toolbar">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/liao2.png" alt="Logo da Loja">
+            </div>
+        </div>
     </header>
     <main>
         <section class="categories">
             <h1>Categorias</h1>
-            <p>Arquivo você encontra a maior variedade de itens para seus jogos preferidos.</p>
+            <p>Explore diversos gêneros de jogos e escolha o que mais combina com você.</p>
+            <div class="controls">
+                <select id="categorySelect">
+                    <option value="todos">Todos os gêneros</option>
+                    <!-- Opções serão preenchidas dinamicamente -->
+                </select>
+                <button id="searchButton" class="search-icon">🔍</button>
+            </div>
             <div class="filter" id="searchBar" style="display: none;">
                 <input type="text" id="searchInput" placeholder="Pesquisar...">
             </div>
