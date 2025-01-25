@@ -5,10 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mock JSON data
     const categoriesData = [
-        { id: 1, name: 'Game 1', genre: 'RPG', image: 'https://via.placeholder.com/150' },
-        { id: 2, name: 'Game 2', genre: 'Luta', image: 'https://via.placeholder.com/150' },
-        { id: 3, name: 'Game 3', genre: 'Aventura', image: 'https://via.placeholder.com/150' },
-        { id: 4, name: 'Game 4', genre: 'RPG', image: 'https://via.placeholder.com/150' }
+        { id: 1, name: 'Blox Fruits', genre: 'RPG', image: 'https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/bloxfruits.png' },
+        { id: 2, name: 'Fisch', genre: 'Luta', image: 'https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/fisch.png' },
     ];
 
     function populateCategories() {
