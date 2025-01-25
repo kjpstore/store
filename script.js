@@ -6,6 +6,16 @@ fetch('categories.json')
         const searchInput = document.getElementById('searchInput');
         const searchBar = document.getElementById('searchBar');
         const searchButton = document.getElementById('searchButton');
+        const categorySelect = document.getElementById('categorySelect');
+
+        // Preencher opções no select
+        const genres = [...new Set(data.map(item => item.genero))];
+        genres.forEach(genre => {
+            const option = document.createElement('option');
+            option.value = genre.toLowerCase();
+            option.textContent = genre;
+            categorySelect.appendChild(option);
+        });
 
         // Renderizar categorias
         const renderCategories = (categories) => {
@@ -22,7 +32,14 @@ fetch('categories.json')
         // Exibir todas as categorias inicialmente
         renderCategories(data);
 
-        // Pesquisar por gênero
+        // Filtrar por gênero
+        categorySelect.addEventListener('change', (e) => {
+            const selectedGenre = e.target.value;
+            const filteredCategories = selectedGenre === 'todos' ? data : data.filter(category => category.genero.toLowerCase() === selectedGenre);
+            renderCategories(filteredCategories);
+        });
+
+        // Pesquisar por nome
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredCategories = data.filter(category => 
