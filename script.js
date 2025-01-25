@@ -1,59 +1,42 @@
-// Carregar categorias do JSON
-fetch('categories.json')
-    .then(response => response.json())
-    .then(data => {
-        const categoryGrid = document.getElementById('categoryGrid');
-        const searchInput = document.getElementById('searchInput');
-        const searchBar = document.getElementById('searchBar');
-        const searchButton = document.getElementById('searchButton');
-        const categorySelect = document.getElementById('categorySelect');
 
-        // Preencher opções no select
-        const genres = [...new Set(data.map(item => item.genero))];
+document.addEventListener('DOMContentLoaded', () => {
+    const categorySelect = document.getElementById('category-select');
+    const gamesGrid = document.getElementById('games-grid');
+
+    // Mock JSON data
+    const categoriesData = [
+        { id: 1, name: 'Game 1', genre: 'RPG', image: 'https://via.placeholder.com/150' },
+        { id: 2, name: 'Game 2', genre: 'Luta', image: 'https://via.placeholder.com/150' },
+        { id: 3, name: 'Game 3', genre: 'Aventura', image: 'https://via.placeholder.com/150' },
+        { id: 4, name: 'Game 4', genre: 'RPG', image: 'https://via.placeholder.com/150' }
+    ];
+
+    function populateCategories() {
+        const genres = [...new Set(categoriesData.map(item => item.genre))];
         genres.forEach(genre => {
             const option = document.createElement('option');
-            option.value = genre.toLowerCase();
+            option.value = genre;
             option.textContent = genre;
             categorySelect.appendChild(option);
         });
+    }
 
-        // Renderizar categorias
-        const renderCategories = (categories) => {
-            categoryGrid.innerHTML = '';
-            categories.forEach(category => {
-                const item = document.createElement('img');
-                item.src = category.imagem;
-                item.alt = category.genero;
-                item.className = 'category-item';
-                categoryGrid.appendChild(item);
-            });
-        };
-
-        // Exibir todas as categorias inicialmente
-        renderCategories(data);
-
-        // Filtrar por gênero
-        categorySelect.addEventListener('change', (e) => {
-            const selectedGenre = e.target.value;
-            const filteredCategories = selectedGenre === 'todos' ? data : data.filter(category => category.genero.toLowerCase() === selectedGenre);
-            renderCategories(filteredCategories);
+    function populateGames(genre = 'all') {
+        gamesGrid.innerHTML = '';
+        const filteredGames = genre === 'all' ? categoriesData : categoriesData.filter(game => game.genre === genre);
+        filteredGames.forEach(game => {
+            const gameItem = document.createElement('div');
+            gameItem.classList.add('grid-item');
+            gameItem.innerHTML = `<img src="${game.image}" alt="${game.name}">`;
+            gamesGrid.appendChild(gameItem);
         });
+    }
 
-        // Pesquisar por nome
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredCategories = data.filter(category => 
-                category.genero.toLowerCase().includes(searchTerm)
-            );
-            renderCategories(filteredCategories);
-        });
+    categorySelect.addEventListener('change', () => {
+        populateGames(categorySelect.value);
+    });
 
-        // Mostrar/ocultar barra de pesquisa
-        searchButton.addEventListener('click', () => {
-            searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
-            if (searchBar.style.display === 'block') {
-                searchInput.focus();
-            }
-        });
-    })
-    .catch(err => console.error('Erro ao carregar JSON:', err));
+    // Initial population
+    populateCategories();
+    populateGames();
+});
