@@ -9,15 +9,13 @@
 <body>
     <header>
         <div class="logo">KJP</div>
+        <button id="searchButton" class="search-icon">🔍</button>
     </header>
     <main>
         <section class="categories">
             <h1>Categorias</h1>
             <p>Arquivo você encontra a maior variedade de itens para seus jogos preferidos.</p>
-            <div class="filter">
-                <select id="gameFilter">
-                    <option value="all">Todos os jogos</option>
-                </select>
+            <div class="filter" id="searchBar" style="display: none;">
                 <input type="text" id="searchInput" placeholder="Pesquisar...">
             </div>
             <div class="category-grid" id="categoryGrid">
