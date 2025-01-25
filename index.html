@@ -1,38 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Jogos</title>
+    <title>KJP Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="toolbar">
-            <div class="logo">
-                <img src="https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/liao2.png" alt="Logo da Loja">
-            </div>
-        </div>
+    <header class="toolbar">
+        <button class="menu-button">☰</button>
+        <img src="https://raw.githubusercontent.com/kjpstore/store/refs/heads/main/assets/liao2.png" alt="KJP Logo" class="logo">
     </header>
+
     <main>
-        <section class="categories">
+        <section class="categories-section">
             <h1>Categorias</h1>
-            <p>Explore diversos gêneros de jogos e escolha o que mais combina com você.</p>
-            <div class="controls">
-                <select id="categorySelect">
-                    <option value="todos">Todos os gêneros</option>
-                    <!-- Opções serão preenchidas dinamicamente -->
+            <p>Arquivo você encontra a maior variedade de itens para seus jogos preferidos.</p>
+            <div class="filters">
+                <select id="category-select">
+                    <option value="all">Todos os gêneros</option>
                 </select>
-                <button id="searchButton" class="search-icon">🔍</button>
+                <button id="search-button">🔍</button>
             </div>
-            <div class="filter" id="searchBar" style="display: none;">
-                <input type="text" id="searchInput" placeholder="Pesquisar...">
-            </div>
-            <div class="category-grid" id="categoryGrid">
-                <!-- Os itens serão carregados pelo script -->
+            <div class="grid" id="games-grid">
+                <!-- Espaço para os jogos -->
             </div>
         </section>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
